@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 3 - Filtering Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h2> Day 3 - Swapi Tables </h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="myTable" border="1">
+  <tr class="header">
+	<th>Name</th>
+    <th>Rotation Period</th>
+    <th>Orbital Period</th>
+    <th>Diameter</th>
+    <th>Climate</th>
+  </tr>
+<tr>
+  <td>Alderaan</td>
+  <td>24</td>
+  <td>364</td>
+  <td>12500</td>
+  <td>temperate</td>
+</tr>      
+<tr>
+  <td>Yavin IV</td>
+  <td>24</td>
+  <td>4818</td>
+  <td>10200</td>
+  <td>temperate rainforests</td>
+</tr>
+<tr>
+  <td>Hoth</td>
+  <td>23</td>
+  <td>549</td>
+  <td>7200</td>
+  <td>frozen</td>
+</tr>
+<tr>
+  <td>Dagobah</td>
+  <td>23</td>
+  <td>341</td>
+  <td>8900</td>
+  <td>murky</td>
+</tr>
+<tr>
+  <td>Baspin</td>
+  <td>12</td>
+  <td>5110</td>
+  <td>118000</td>
+  <td>temperate</td>
+</tr>
+<tr>
+  <td>Endor</td>
+  <td>18</td>
+  <td>402</td>
+  <td>4900</td>
+  <td>temperate</td>
+</tr>
+</table>
+</body>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+</html>
